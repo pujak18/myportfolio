@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Website - Puja Rajaram Kashyap</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: #f8f9fa;
+    }
+    .navbar {
+      min-height: 10vh;
+    }
+    .nav-link {
+      color: #fff !important;
+      padding-right: 20px !important;
+    }
+    section {
+      min-height: 100vh;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    #home {
+      background-color: #77d8d8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    #home h1 {
+      font-size: 3rem;
+      color: #fff;
+      margin-top: 20px;
+    }
+    #home img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    #about {
+      background-color: #4bbbb9;
+      color: #fff;
+    }
+    #about h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    #about p {
+      font-size: 1.2rem;
+      line-height: 2;
+    }
+    #education {
+      background-color: #fff;
+    }
+    #education h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+    #education img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    #hobbies {
+      background-color: #4bbbb9;
+      color: #fff;
+    }
+    #hobbies h1 {
+      font-size: 2.9rem;
+      margin-bottom: 10;
+    }
+    #hobbies h5 {
+      font-size: 2rem;
+      margin-top: 15px;
+      color: #fff;
+    }
+    #hobbies img {
+      width: 270px;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    #skills {
+      background: url('skill2.jpeg') no-repeat center center/cover;
+      background-size: 45%;
+      position: relative;
+      color: #fff;
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+      border-radius: 0;
+    }
+    #skills .cover {
+      background: rgba(0,0,0,0.8);
+      min-height: 100vh;
+      padding: 60px 0;
+    }
+    #skills h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    #skills ul {
+      font-size: 1.8rem;
+    }
+    #contact {
+      background-color: #fff;
+    }
+    #contact h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+    .form-control, .btn {
+      font-size: 1.1rem;
+    }
+    .error {
+      color: #dc3545;
+      margin-top: 10px;
+    }
+    .success {
+      color: #28a745;
+      margin-top: 10px;
+    }
+    @media (max-width: 767px) {
+      section {
+        padding-top: 60px;
+        padding-bottom: 20px;
+      }
+      #home h1 {
+        font-size: 2rem;
+      }
+      #about h1, #education h1, #hobbies h1, #skills h1, #contact h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const feedback = document.getElementById('feedback');
+      const namePattern = /^[a-zA-Z\s]+$/;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const contactPattern = /^\d{10}$/;
+      if (!name || !email || !contact || !message) {
+        feedback.textContent = "All fields are required.";
+        feedback.className = "error";
+        return false;
+      }
+      if (!namePattern.test(name)) {
+        feedback.textContent = "Name can only contain letters and spaces.";
+        feedback.className = "error";
+        return false;
+      }
+      if (!emailPattern.test(email)) {
+        feedback.textContent = "Invalid email format.";
+        feedback.className = "error";
+        return false;
+      }
+      if (!contactPattern.test(contact)) {
+        feedback.textContent = "Contact number must be exactly 10 digits.";
+        feedback.className = "error";
+        return false;
+      }
+      feedback.textContent = "Form submitted successfully!";
+      feedback.className = "success";
+      return true;
+    });
+  </script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#home">Puja</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#hobbies">Hobbies</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="d-flex align-items-center justify-content-center">
+    <div class="container text-center">
+      <img src="myphoto.jpeg" alt="Puja Rajaram Kashyap" class="img-fluid rounded-circle mb-4" style="width: 200px; height: 200px; object-fit: cover;">
+      <h1>Puja Rajaram Kashyap</h1>
+      <p class="lead">Final-year B.Tech Engineering Student | Aspiring Web Developer</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h1>About</h1>
+      <p>I am Puja Kashyap, a dedicated and detail-oriented web developer currently pursuing a B.Tech degree in Electronics and Telecommunication Engineering at Priyadarshini College of Engineering, Nagpur. With a strong foundation in front-end technologies including HTML5, CSS3, and JavaScript, I have developed several interactive web applications.<br> Notable academic projects include the creation of a browser-based "Jumping Jack" game, an LDR-based street light control system optimizing energy consumption, and an accident prevention prototype integrating sensor technology to enhance road safety. I am eager to leverage my technical expertise and problem-solving skills to contribute to dynamic development teams and further my career in web development.</p>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <h1>Education</h1>
+      <div class="row pt-4">
+        <div class="col-md-4 text-center mb-4">
+          <img src="school.jpeg" alt="School">
+          <h4>Nagar Parishad High School</h4>
+          <p>Till 2019</p>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+          <img src="juniorclg.jpeg" alt="Junior College">
+          <h4>Bhalerao Junior College</h4>
+          <p>2020 - 2021 M.P.C</p>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+          <img src="graduation.jpeg" alt="Graduation">
+          <h4>Priyadarshini JL College Of Engineering</h4>
+          <p>2021 - 2025 ETC</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobbies Section -->
+  <section id="hobbies">
+    <div class="container">
+      <h1>Hobbies</h1>
+      <div class="row pt-4">
+        <div class="col-md-4 text-center mb-4">
+          <img src="surfingweb.jpeg" alt="Surfing the Web">
+          <h5>Surfing the Web</h5>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+          <img src="reading.jpeg" alt="Reading">
+          <h5>Reading</h5>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+          <img src="painting.jpeg" alt="Painting">
+          <h5>Painting</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="cover">
+      <div class="container">
+        <h1>Skills</h1>
+        <ul>
+          <li>HTML, CSS, JavaScript</li>
+          <li>React.js</li>
+          <li>Bootstrap</li>
+          <li>Responsive Web Design</li>
+          <li>Teamwork & Communication</li>
+          <li>problem-solving</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h1>Contact</h1>
+      <form id="contactForm" novalidate>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="contact" class="form-label">Contact Number</label>
+          <input type="text" class="form-control" id="contact" name="contact" required maxlength="10">
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <div id="feedback" class="mt-2"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
